@@ -14,7 +14,8 @@ export class Hello extends React.Component<HelloProps, State> {
         if(this.state) {
             const listItems = this.state.quotes.map((quote: Quote) =>
                 <li key={quote._id.toString()}>
-                    <span>id: {quote._id}</span>
+                    <span>Author: {quote.author}</span>&nbsp;&nbsp;
+                    <span>Quote: {quote.quote}</span>
                 </li>
             );
             return <ul>{listItems}</ul>
