@@ -31,11 +31,10 @@ export class QuoteForm extends React.Component<IQuoteFormProps, IQuote> {
 
     public render() {
         return <form onSubmit={this.handleSubmit}>
-            <label htmlFor="authorInput">Author</label>
-            <input id="authorInput" type="text" value={this.state.author} onChange={this.handleAuthorChange}/>
-            <label htmlFor="quoteInput">Quote</label>
-            <input id="quoteInput" type="text" value={this.state.quote} onChange={this.handleQuoteChange}/>
-            <br/><br/>
+            <label htmlFor="authorInput">Author</label>&nbsp;
+            <input id="authorInput" type="text" value={this.state.author} onChange={this.handleAuthorChange}/>&nbsp;&nbsp;
+            <label htmlFor="quoteInput">Quote</label>&nbsp;
+            <input id="quoteInput" type="text" value={this.state.quote} onChange={this.handleQuoteChange}/>&nbsp;&nbsp;
             <button type="submit"></button>
         </form>
     }

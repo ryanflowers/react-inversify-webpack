@@ -12,7 +12,12 @@ export class QuotesList extends React.Component<IQuotesListProps, undefined> {
                     <span>Quote: {quote.quote}</span>
                 </li>
             );
-            return <ul>{listItems}</ul>
+
+            const style ={
+                listStyle: 'none'
+            };
+
+            return <ul style={style}>{listItems}</ul>
         }
         else {
             return <div>No quotes found.</div>
