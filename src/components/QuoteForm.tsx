@@ -9,24 +9,30 @@ export class QuoteForm extends React.Component<IQuoteFormProps, IQuote> {
     constructor() {
         super();
 
-        this.state = { author: '', quote: '' };
+        this.resetState();
         this.handleAuthorChange = this.handleAuthorChange.bind(this);
         this.handleQuoteChange = this.handleQuoteChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     // TODO Merge all these field handlers
-    handleAuthorChange(event: any) {
+    private handleAuthorChange(event: any) {
         this.setState(_.extend(this.state, { author: event.target.value }));
     }
 
-    handleQuoteChange(event: any) {
+    private handleQuoteChange(event: any) {
         this.setState(_.extend(this.state, { quote: event.target.value }));
     }
 
-    handleSubmit(event: any) {
+    private handleSubmit(event: any) {
         this.props.onAddQuote(this.state);
+        // TODO only do this on success
+        this.resetState();
         event.preventDefault();
+    }
+
+    private resetState() {
+        this.state = { author: '', quote: '' };
     }
 
     public render() {

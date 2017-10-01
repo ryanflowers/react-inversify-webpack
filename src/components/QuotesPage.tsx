@@ -11,6 +11,7 @@ export class QuotesPage extends React.Component<undefined, IQuotesPageState> {
         super();
 
         this.onAddQuote = this.onAddQuote.bind(this);
+        this.onDeleteQuote = this.onDeleteQuote.bind(this);
     }
 
     public render() {
@@ -24,13 +25,13 @@ export class QuotesPage extends React.Component<undefined, IQuotesPageState> {
             return <div>
                         <QuoteForm onAddQuote={this.onAddQuote}></QuoteForm>
                         <hr style={style}/>
-                        <QuotesList quotes={this.state.quotes}/>
+                        <QuotesList quotes={this.state.quotes} onDeleteQuote={this.onDeleteQuote}/>
                     </div>
         }
     }
 
     public componentDidMount() {
-        var myInit = { method: 'GET',
+        let myInit = { method: 'GET',
             cache: 'no-cache' };
 
         //let url; = 'http://ryanflowers.us-west-1.elasticbeanstalk.com/quotes'
@@ -71,6 +72,27 @@ export class QuotesPage extends React.Component<undefined, IQuotesPageState> {
         quote._id = clientId;
         // Add client lie
         this.setState({ quotes: this.state.quotes.concat(quote) });
+    }
+
+    private onDeleteQuote(quote: IQuote) {
+        let url = 'http://localhost:3000/quotes?id=' + quote._id;
+
+        fetch(url, {
+            method: "DELETE",
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }).then((response: Response) => {
+
+            let quotes = this.state.quotes.filter((value: IQuote) => {
+                return value._id !== quote._id;
+            });
+
+            this.setState({ quotes: quotes});
+
+        }).catch((error: any) => {
+            alert(`Error deleting quote. Error:${error}`);
+        });
     }
 
     private guid() {
