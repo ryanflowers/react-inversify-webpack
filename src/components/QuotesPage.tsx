@@ -34,8 +34,8 @@ export class QuotesPage extends React.Component<undefined, IQuotesPageState> {
         let myInit = { method: 'GET',
             cache: 'no-cache' };
 
-        //let url; = 'http://ryanflowers.us-west-1.elasticbeanstalk.com/quotes'
-        let url = 'http://localhost:3000/quotes';
+        let url = 'http://inversify-express-mongo.us-west-1.elasticbeanstalk.com/quotes';
+        //let url = 'http://localhost:3000/quotes';
         fetch(url, (myInit as any))
             .then((resp) => resp.json()) // Transform the data into json
             .then((data: IQuote[]) => {

@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./server.js"
   },
   "repository": {
     "type": "git",
@@ -26,6 +27,7 @@
     "react-dom": "^15.6.1"
   },
   "devDependencies": {
+    "nodemon": "1.11.0",
     "awesome-typescript-loader": "^3.2.3",
     "source-map-loader": "^0.2.1",
     "typescript": "^2.5.2"
