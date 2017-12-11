@@ -1,4 +1,7 @@
 # react-inversify-webpack
 A simple application made up of react, inversify and webpack
 
-To start the server run: node start
+To Run
+install packages: npm install
+build: webpack
+run server: node start
